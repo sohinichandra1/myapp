@@ -1,0 +1,27 @@
+<h1>Users</h1>
+<% if signed_in? %>
+  <table>
+    <thead>
+      <tr>
+	<th>Name</th>
+	<th>Address</th>
+	<th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+	  <td><%= user.name %></td>
+          <td><%= user.address %></td>
+          <td><%= link_to "Edit", edit_user_path(user) %></td>
+	 </tr>
+         <% end %>
+     </tbody>
+  </table>
+<% else %>
+  <%= link_to "Sign Up", new_user_registration_path %>
+  <%= link_to "Sign In", new_user_session_path %>
+<% end %>
+
+
+    
